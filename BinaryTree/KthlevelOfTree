@@ -1,0 +1,15 @@
+public static void Klevel(Node root,int level,int k) {
+	 if(root==null) {
+		 return;
+	 }
+	 if(level==k) {
+		 // i reached on my level
+		 // now i will print my number
+		 System.out.print(root.data+" ");
+		 return;
+	 }
+	 Klevel(root.left,level+1,k);
+	 Klevel(root.right,level+1,k);
+ }
+// main fxn
+Klevel(root,1,3) // i want 3rd level all node starting level 1 
