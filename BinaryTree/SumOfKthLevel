@@ -1,0 +1,14 @@
+public static int KlevelSum(Node root,int level,int k) {
+	 if(root==null) {
+		 return 0;
+	 }
+	 int sum=0;
+	 if(level==k) {
+		 // i reached on my level
+		 // now i will print my number
+		 sum+=root.data;
+	 }
+	 sum+= KlevelSum(root.left,level+1,k);
+	 sum+= KlevelSum(root.right,level+1,k);
+	 return sum;
+ }
