@@ -1,3 +1,6 @@
+// what is LCA?
+//So, the lowest common ancestor of two nodes in a tree is the nearest node that is an ancestor of both nodes.
+//It’s like finding the closest family member who is a parent or grandparent to both people you're interested in.
 public static Node lowestCommonAncestor( Node root,  Node p,  Node q) {
       if(root==null){
           return null;
