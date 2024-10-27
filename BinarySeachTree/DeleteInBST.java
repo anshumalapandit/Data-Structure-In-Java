@@ -1,52 +1,41 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-class Solution {
-    public TreeNode InorderSuccessor(TreeNode root){
-        while(root.left!=null){
-            root=root.left;
+// T.C=> 0(logn) bcoz we are not travelling all node
+class Tree {
+    public static Node minInRightSide(Node root){
+        if(root.left==null){
+            return root;
         }
-        return root;
+        return minInRightSide(root.left);
     }
-    public TreeNode deleteNode(TreeNode root, int key) {
+    // Function to delete a node from BST.
+    public static Node deleteNode(Node root, int X) {
+        // code here.
         if(root==null){
             return null;
         }
-      // first lets find deleting key value where it is : 
-        if(root.val>key){
-            root.left =deleteNode(root.left,key);
-        }else if(root.val<key){
-            root.right=deleteNode(root.right,key);
+        if(X<root.data){
+            root.left=deleteNode(root.left,X);
+        }else if(X>root.data){
+            root.right=deleteNode(root.right,X);
         }else{
-            // else case means key mil gya
-            //case 1: if its is leaf node
-        if(root.left==null && root.right==null){
-            return null;
+            // deleteing key is founf
+           //case 1:
+           if(root.left==null && root.right==null){
+               return null;
+           }
+           // case 2:
+           if(root.left==null){
+               return root.right;
+           }else if(root.right==null){
+               return root.left;
+           }
+           // case 3:
+           // find min node in right k leftmose node
+           Node minNodeVal=minInRightSide(root.right);
+           root.data=minNodeVal.data;
+           root.right=deleteNode(root.right,minNodeVal.data);
+          
         }
-            //case 2:
-            if(root.left==null){
-                return root.right;
-            }else if(root.right==null){
-                return root.left;
-            }
-            //case 3:
-        
-        TreeNode IS=InorderSuccessor(root.right);
-        root.val=IS.val;
-        root.right=deleteNode(root.right,IS.val);
-        }
-        return root;
+         return root;
+                
     }
 }
