@@ -1,6 +1,8 @@
 // diameter = no. of nodes in a longest path between 2 leaves
 // diameter = can be go through root also it can be lies in any subtree
 // approach 1 0(n2)
+//For the diameter to be correct when the height is calculated in terms of edges,
+//you need to ensure that the height function also returns the height in terms of edges.
 public static int diameter(Node root) {
 	if(root==null) {
 		return 0;
@@ -9,7 +11,7 @@ public static int diameter(Node root) {
 	int rightdia=diameter(root.right);
 	int leftht=height(root.left); // called height fxn
 	int rightht=height(root.right);
-	int selfdia=leftht+rightht;
+	int selfdia=leftht+rightht; 
 	return Math.max(selfdia, Math.max(leftdia, rightdia));
 }
 // approach 2 0(N) coz we are not calling height fxn recursively
