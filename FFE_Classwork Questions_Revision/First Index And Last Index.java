@@ -10,6 +10,7 @@ public static void findIndex(int a[],int n,int target){
             if(first==-1){
                 first=i;
             }
+            // here dont use else coz If the target appears only once, last remains -1. To handle this. remove else bracket so that both first and last index would remain same..
                 last=i;
         }
     }
