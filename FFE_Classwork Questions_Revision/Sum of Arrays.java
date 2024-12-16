@@ -29,7 +29,7 @@ public static void sumOfArray(int a1[],int n1,int a2[],int n2){
         i++;
     }
     // what if my ans arr looks like 0000 so in such case print only single zero
-    while(i==n){
+    if(i==n){
         System.out.println(0);
     }
     while(i<n){
