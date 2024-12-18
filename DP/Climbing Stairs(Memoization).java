@@ -1,6 +1,6 @@
 class Solution {
     public int helper(int n,int dp[]){
-        // memoization approach
+        // memoization approach T.C=> 0(n)
         if(n==0){
             return 1;
         }
