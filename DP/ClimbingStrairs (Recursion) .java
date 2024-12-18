@@ -1,4 +1,5 @@
 // it will tle error also its not efficient bcoz reptitive call going to same n ..
+// T.C=> 2^n which is very bad time comp
   class Solution {
     public int climbStairs(int n) {
         if(n==0){
