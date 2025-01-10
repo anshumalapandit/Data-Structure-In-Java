@@ -47,12 +47,10 @@ public class Main {
         }
         if(size==1){
             head=tail=null;
+          size--;
             return;
-        }else{
-            Node removed=head;
-            head=head.next;
-            removed.next=null;
         }
+            head=head.next;
         size--;
     }
   }
