@@ -1,0 +1,45 @@
+
+class Solution {
+    public void findSoldiers(int mat[][],int row,int m,HashMap<Integer,Integer> map){
+        int count=0;
+        for(int i=0;i<m;i++){
+            if(mat[row][i]==1){
+                count++;
+            }
+        }
+        map.put(row,count);
+    }
+    public int[] kWeakestRows(int[][] mat, int k) {
+        int n=mat.length;
+        int m=mat[0].length;
+        PriorityQueue<Integer> pq=new PriorityQueue<>();
+        HashMap<Integer,Integer> map=new HashMap<>();
+        for(int i=0;i<mat.length;i++){
+            findSoldiers(mat,i,m,map);
+        }
+       // put all values in pq
+       for(int key:map.keySet()){
+        int val=map.get(key);
+        pq.add(val);
+       }
+       ArrayList<Integer> arr=new ArrayList<>();
+       int idx=1;
+       while(idx<=k && pq.size()>0){
+           int cur=pq.poll();
+           for(int key:map.keySet()){
+            if(map.get(key)==cur){
+                if(!arr.contains(key)){
+                    arr.add(key);
+                }
+            }
+           }
+           idx++;
+
+       }
+       int ans[]=new int[k];
+       for(int i=0;i<k;i++){
+        ans[i]=arr.get(i);
+       }
+       return ans;
+    }
+}
