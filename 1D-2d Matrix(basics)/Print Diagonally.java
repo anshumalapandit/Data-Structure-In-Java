@@ -19,3 +19,33 @@ class Solution{
         return ans;
     }
 }
+class Solution{
+    static ArrayList<Integer> downwardDiagonal(int N, int A[][])
+    {
+        // code here 
+        // total possible diagonals hote hai if size N
+        // 2N-1 is total diagonal
+        ArrayList<Integer> ans=new ArrayList<>();
+       // print first half
+       for(int i=0;i<N;i++){
+           int row=0;
+           int col=i; // notice - jo i hai wahi se col bhi start hora
+           while(col>=0){
+               ans.add(A[row][col]);
+               row++;
+               col--;
+           }
+       }
+       // now print lower halh
+       for(int i=1;i<N;i++){
+           int row=i;
+           int col=N-1;
+           while(row<N){
+               ans.add(A[row][col]);
+               row++;
+               col--;
+           }
+       }
+        return ans;
+    }
+}
