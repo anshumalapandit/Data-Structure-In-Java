@@ -13,3 +13,22 @@ class Solution {
             return max;
     }
 }
+class Solution {
+    public int longestNiceSubarray(int[] nums) {
+        int i=0;
+        int j=0;
+        int mask=0;
+        int result=1;
+        while(j<nums.length){
+            // keep shriking the array if not nice subarray
+            while((mask & nums[j])!=0){
+                mask=(mask ^ nums[i]);
+                i++; // khud k sath hi xor operation kardo reduce ho jayega 
+            }
+            result=Math.max(result,j-i+1);
+            mask|=nums[j];
+            j++;
+        }
+        return result;
+    }
+}
