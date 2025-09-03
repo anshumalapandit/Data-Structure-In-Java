@@ -1,0 +1,21 @@
+class Main{
+    public static void main(String args[]){
+        Student s=new Student(1);
+        Student shallowCopy=s; // copied the reference of object
+        // now i am changing the another object
+        shallowCopy.rollno=4;
+        // i had performed this change operation on only shallowCopy object but the changes reflect in both object why? bcoz here we used concept of reference copy 
+      // yaha pe hum object k reference ko copy karte hai 
+     // thats why ultimately dono object same object ko point kar re hote hai
+      
+        System.out.println("Initial Value: "+s.rollno);
+        System.out.println("After copying the object: "+shallowCopy.rollno);
+    }
+}
+// shallow copy
+class Student{
+    int rollno;
+    Student(int rollno){
+        this.rollno=rollno;
+    }
+}
