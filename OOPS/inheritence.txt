@@ -1,0 +1,28 @@
+There are 5 types of Inheritance in Java:
+Single Inheritance
+Multilevel Inheritance
+Hierarchical Inheritance
+Multiple Inheritance (not supported directly)
+Hybrid Inheritance (not supported directly)
+https://smartprogramming.in/tutorials/java/types-of-inheritance
+Important Points to Remember of multilevel inheritence:
+Multilevel inheritance represents a class hierarchy with more than two levels.
+The child class inherits properties from its parent class and all ancestor classes.
+Supports code reuse across multiple levels.
+Helps model real-world hierarchical relationships.
+
+#Multiple Inheritence:
+Multiple inheritance refers to a feature where a class can inherit features (methods and fields) from more than one parent class.
+Java does not support multiple inheritance with classes directly, but it supports it through interfaces.
+This prevents conflicts and ambiguity caused by the Diamond Problem.
+Important Points to Remember:
+Java classes cannot extend more than one class at a time.
+Multiple inheritance is achieved using interfaces in Java.
+This design avoids ambiguity and promotes clean architecture.
+Interfaces define abstract behavior that multiple classes can implement.
+#Hybrid 
+ Hybrid Inheritance:
+Note: Java does not support hybrid inheritance with classes directly because it may lead to ambiguity. However, it can be achieved using interfaces to simulate hybrid behavior.
+Hybrid inheritance is a combination of two or more types of inheritance (e.g., single, multiple, multilevel).
+It represents a scenario where different inheritance types are combined to form a complex hierarchy.
+Java does not support hybrid inheritance with classes due to ambiguity issues but supports it through interfaces.
