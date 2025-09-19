@@ -60,7 +60,13 @@ class Solution {
             i++;
             j++;
         }
+ ⚡ In short:
 
+// while (i<n && str1[i] != c) → str1 ke extra characters ko LCS char tak append karo.
+
+// while (j<m && str2[j] != c) → str2 ke extra characters ko LCS char tak append karo.
+
+// scs.append(c) → dono strings ka common LCS char ek hi baar add karo.
         // Add remaining chars
         scs.append(str1.substring(i));
         scs.append(str2.substring(j));
