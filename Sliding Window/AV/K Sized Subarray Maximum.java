@@ -65,3 +65,26 @@ class Solution {
         return ans;
     }
 }
+// TLE error :
+
+
+class Solution {
+    public ArrayList<Integer> maxOfSubarrays(int arr[], int k) {
+        // code here
+        ArrayList<Integer> ans=new ArrayList<>();
+        for(int i=0;i<=arr.length-k;i++){
+            int j=i;
+            int counter=0;
+            PriorityQueue<Integer> pq=new PriorityQueue<>(Collections.reverseOrder());
+            while(counter<k){
+                pq.add(arr[j]);
+                j++;
+                counter++;
+            }
+            if(pq.size()==k){
+                ans.add(pq.poll());
+            }
+        }
+        return ans;
+    }
+}
