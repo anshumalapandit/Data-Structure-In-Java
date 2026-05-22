@@ -1,0 +1,51 @@
+import java.util.*;
+
+public class Main {
+
+    public static String funnyString(int n, int d) {
+
+        StringBuilder sb = new StringBuilder();
+
+        char ch = 'a';
+
+        for (int i = 0; i < n; i++) {
+
+            sb.append(ch);
+
+            int pos = (ch - 'a' + d) % 26;
+            ch = (char) (pos + 'a');
+        }
+
+        String s = sb.toString();
+
+        int[] freq = new int[26];
+
+        for (char c : s.toCharArray()) {
+            freq[c - 'a']++;
+        }
+
+        int odd = 0;
+        int even = 0;
+
+        for (int f : freq) {
+
+            if (f == 0)
+                continue;
+
+            if (f % 2 == 0)
+                even++;
+            else
+                odd++;
+        }
+
+        return odd > even ? "Funny String" : "Not Funny String";
+    }
+
+    public static void main(String[] args) {
+
+        int n = 4;
+        int d = 13;
+
+        System.out.println(funnyString(n, d));
+    }
+}
