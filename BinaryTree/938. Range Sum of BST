@@ -1,0 +1,45 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public void helper(TreeNode root,int low,int high,int sum[]){
+        if(root==null){
+            return;
+        }
+        if(root.val>=low && root.val<=high){
+            sum[0]+=root.val;
+            // imp step hereafter
+            // value is in range, so check both sides
+            helper(root.left, low, high, sum);
+            helper(root.right, low, high, sum);
+        }
+
+        // now go in both direction 
+        // if root < low , koi matlab nhi jake
+        if(root.val<low){
+            // we want >= low , so lets go in right
+            helper(root.right,low,high,sum);
+        }else if(root.val>high){
+            // now right jaake mataln nhi we want <=high
+            helper(root.left,low,high,sum);
+        }
+
+    }
+    public int rangeSumBST(TreeNode root, int low, int high) {
+        int sum[]=new int[1];
+        helper(root,low,high,sum);
+        return sum[0];
+    }
+}
